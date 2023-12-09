@@ -12,7 +12,6 @@ const jobSchema = new mongoose.Schema(
     },
     wage: {
       type: Number,
-      required: true,
     },
     category: {
       type: String,
@@ -21,10 +20,17 @@ const jobSchema = new mongoose.Schema(
     status: {
       type: String,
     },
+    location: {
+      type: String,
+      required: true,
+    },
     worker: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Users",
-      required: true,
+    },
+    customer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Users",
     },
   },
   {
@@ -33,3 +39,13 @@ const jobSchema = new mongoose.Schema(
 );
 
 module.exports = mongoose.model("Jobs", jobSchema);
+
+/* 
+All possible types of Job Status
+--------------------------------
+   Open --> worker, 
+   Completed --> worker, 
+   Requested --> Customer,
+   Hired --> Customer,
+   Cancelled --> Both(optional)
+*/
