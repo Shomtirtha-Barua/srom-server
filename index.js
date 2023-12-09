@@ -21,12 +21,14 @@ const userRoute = require("./routes/userRoute");
 const serviceRoute = require("./routes/serviceRoute");
 const jobRoute = require("./routes/jobRoute");
 const messageRoute = require("./routes/messageRoute");
+const orderRoute = require("./routes/orderRoute");
 
 // ROUTES HERE
 app.use("/api/v1", userRoute);
 app.use("/api/v1", serviceRoute);
 app.use("/api/v1", jobRoute);
 app.use("/api/v1", messageRoute);
+app.use("/api/v1", orderRoute);
 
 // LISTENING SERVER
 app.listen(port, () => {
